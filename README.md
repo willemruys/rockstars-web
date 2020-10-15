@@ -4,7 +4,16 @@ This application has been built using Gatsby and a mock server running on local 
 
 ## Running application on your local machine
 
-Clone repo and install packages. Make sure server is up and running - see how to on rockstars-server repo. Use `yarn start` to start the website.
+Clone repo and install packages. Make sure server is up and running - see how to on rockstars-server repo.
+
+Add an .env file containing the following two variables and its values:
+
+```
+GATSBY_ENVIRONMENT='local'
+GATSBY_API_URL='http://localhost:3000/'
+```
+
+Use `yarn start` to start your environment.
 
 ## Server side rendering ussing createPages API
 
