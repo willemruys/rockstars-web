@@ -1,6 +1,6 @@
 ## Rockstars application
 
-This application has been built using Gatsby and a mock server running on local machine. Get the server here: [https://github.com/willemruys/rockstars-server]
+This application has been built using Gatsby and a mock server running on local machine. Get the server here: https://github.com/willemruys/rockstars-server
 
 ## Running application on your local machine
 
@@ -21,10 +21,30 @@ The page /artists is rendered on server side using the createPageApi, which has 
 
 ## How has the interface been built?
 
-Features has been built using [Material-UI] (https://material-ui.com/), a very usefull and popular React component framework.
+Features has been built using [Material-UI](https://material-ui.com/), a very usefull and popular React component framework.
 
 ## Current features
 
 Currently it is possible to retrieve all available artists and their songs. It is possible to add a song to your playlist and remove one as well using your mock server.
 
 It is also possible to retrieve your songs in your playlist.
+
+## WIP
+
+### Current features
+
+A long list, but some key things need to be worked on:
+
+- Fix server side rendering bug
+
+- work on global state (start has been made using [zustand](https://www.npmjs.com/package/zustand))
+
+- refactor components (add, delete buttons, containers, grid)
+
+### new features
+
+- artist detail page
+
+- search input
+
+- search on genre
