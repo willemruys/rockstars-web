@@ -1,20 +1,42 @@
-import { AppBar, styled, Typography, makeStyles } from "@material-ui/core"
+import {
+  AppBar,
+  styled,
+  Typography,
+  makeStyles,
+  MenuItem,
+  Button,
+  Container,
+} from "@material-ui/core"
 import { useTheme } from "@material-ui/styles"
+import { Link } from "gatsby"
 import React from "react"
+import { BadgeComponent } from "../../molecules/Badge/Badge"
 
 const useStyles = makeStyles({
   appBar: {
     backgroundColor: "#00000",
   },
+  // menuItem: {
+  //   pointerEvents: "none",
+  //   display: "flex",
+  //   alignItems: "center",
+  //   justifyContent: "center",
+  // },
 })
 
 const Header = ({ siteTitle }) => {
   const classes = useStyles()
   return (
     <AppBar position="sticky" className={classes.appBar}>
-      <div>
+      <MenuItem>
         <h1>{siteTitle}</h1>
-      </div>
+      </MenuItem>
+      <Container>
+        <BadgeComponent />
+      </Container>
+      <Container>
+        <Link to="/artists">Your artists</Link>
+      </Container>
     </AppBar>
   )
 }

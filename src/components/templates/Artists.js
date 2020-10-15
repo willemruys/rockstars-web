@@ -17,15 +17,6 @@ const useStyles = makeStyles({
 export default ({ pageContext: { artists } }) => {
   const classes = useStyles()
 
-  const [filter, setFilter] = useState()
-  const [filteredArtists, setFilteredArtists] = useState()
-
-  useEffect(() => {
-    const result = artists.filter(artist => artist.name.includes(filter))
-    setFilteredArtists(result)
-    console.log(filteredArtists)
-  }, [filteredArtists])
-
   return (
     <Layout>
       <Container className={classes.container}>
@@ -34,7 +25,7 @@ export default ({ pageContext: { artists } }) => {
             <h1>A selection of artists</h1>
           </Grid>
           <Grid item xs={12}>
-            <input onChange={e => setFilter(e.event.target)}></input>
+            {/* <input onChange={e => setFilter(e.target.value)}></input> */}
           </Grid>
           {artists.map(artist => {
             return (

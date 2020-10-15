@@ -1,11 +1,10 @@
-require("dotenv").config()
 const axios = require("axios")
 
 const getSongData = async () => {
   let data = []
 
-  if (process.env.ENVIRONMENT === "local") {
-    const url = process.env.API_URL + "songs"
+  if (process.env.GATSBY_ENVIRONMENT === "local") {
+    const url = process.env.GATSBY_API_URL + "songs"
     await axios
       .get(url)
       .then(res => (data = res.data))
@@ -18,8 +17,8 @@ const getSongData = async () => {
 const getArtistData = async () => {
   let data = []
 
-  if (process.env.ENVIRONMENT === "local") {
-    const url = process.env.API_URL + "artists"
+  if (process.env.GATSBY_ENVIRONMENT === "local") {
+    const url = process.env.GATSBY_API_URL + "artists"
     await axios
       .get(url)
       .then(res => (data = res.data))
@@ -65,6 +64,7 @@ exports.createPages = async ({ actions: { createPage } }) => {
     songs.forEach(song => {
       if (song.artist === artist.name) {
         artist.songs.push({
+          id: song.id,
           name: song.name,
           year: song.year,
           shortname: song.shortname,
