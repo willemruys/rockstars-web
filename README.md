@@ -47,6 +47,8 @@ A long list, but some key things need to be worked on:
 
 - artist detail page
 
+- song detail page
+
 - search input
 
 - search on genre
