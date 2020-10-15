@@ -25,9 +25,11 @@ Features has been built using [Material-UI](https://material-ui.com/), a very us
 
 ## Current features
 
-Currently it is possible to retrieve all available artists and their songs. It is possible to add a song to your playlist and remove one as well using your mock server.
+Currently it is possible to
 
-It is also possible to retrieve your songs in your playlist.
+- retrieve all available artists and their songs.
+- Add a song to your playlist and remove one as well using your mock server.
+- retrieve your songs in your playlist.
 
 ## WIP
 
