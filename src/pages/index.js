@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react"
-import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import { Container, Grid, makeStyles } from "@material-ui/core"
-import ArtistCard from "../components/organisms/Cards/ArtistCard"
 const axios = require("axios")
 
 const useStyles = makeStyles({

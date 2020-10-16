@@ -45,6 +45,8 @@ A long list, but some key things need to be worked on:
 
 ### new features
 
+- home page with preview of artists, genres and playlist songs
+
 - artist detail page
 
 - song detail page
