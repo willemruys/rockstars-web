@@ -42,6 +42,7 @@ exports.createPages = async ({ actions: { createPage } }) => {
   songs.forEach(song => {
     createPage({
       path: `songs/${song.shortname}`,
+      parent: `__SOURCE__`,
       component: require.resolve("./src/components/templates/SongPage.js"),
       context: { song },
     })
@@ -80,4 +81,56 @@ exports.createPages = async ({ actions: { createPage } }) => {
       context: { artist },
     })
   })
+}
+
+exports.sourceNodes = async ({
+  actions,
+  createContentDigest,
+  createNodeId,
+  getNodesByType,
+}) => {
+  const { createNode } = actions
+  const artistData = await getArtistData()
+  const songData = await getSongData()
+
+  // loop through data and create Gatsby nodes
+  artistData.forEach(artist =>
+    createNode({
+      ...artist,
+      id: createNodeId(`artist-${artist.id}`),
+      parent: null,
+      children: [],
+      internal: {
+        type: "artist",
+        content: JSON.stringify(artist),
+        contentDigest: createContentDigest(artist),
+      },
+    })
+  )
+
+  songData.forEach(song => {
+    createNode({
+      ...song,
+      id: createNodeId(`song-${song.id}`),
+      parent: null,
+      children: [],
+      internal: {
+        type: "song",
+        content: JSON.stringify(song),
+        contentDigest: createContentDigest(song),
+      },
+    })
+  })
+
+  createNode({
+    songData,
+    parent: null,
+    children: [],
+    internal: {
+      type: "allSongs",
+      content: JSON.stringify(songData),
+      contentDigest: createContentDigest(songData),
+    },
+  })
+  return
 }
