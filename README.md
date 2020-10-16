@@ -33,6 +33,28 @@ Currently it is possible to
 
 ## WIP
 
+## graphql
+
+**only available in graphql branch**
+In branch graphql-setup a start has been made to implement Graphql for songs and artists. This follows the regular implementation patterns of Gatsby.
+
+Using localhost:8000/\_\_\_graphql you can query songs. Example:
+
+```
+query SongsQuery {
+  allSong {
+    nodes {
+      artist
+      bpm
+      album
+      genre
+      duration
+      id
+    }
+  }
+}
+```
+
 ### Current features
 
 A long list, but some key things need to be worked on:
