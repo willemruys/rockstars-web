@@ -1,12 +1,6 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import Layout from "../layout"
-import {
-  Container,
-  Grid,
-  Input,
-  makeStyles,
-  FormControl,
-} from "@material-ui/core"
+import { Container, Grid, makeStyles } from "@material-ui/core"
 import ArtistCard from "../organisms/Cards/ArtistCard"
 const useStyles = makeStyles({
   container: {

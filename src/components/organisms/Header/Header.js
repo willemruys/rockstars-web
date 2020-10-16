@@ -1,13 +1,4 @@
-import {
-  AppBar,
-  styled,
-  Typography,
-  makeStyles,
-  MenuItem,
-  Button,
-  Container,
-} from "@material-ui/core"
-import { useTheme } from "@material-ui/styles"
+import { AppBar, makeStyles, MenuItem, Container } from "@material-ui/core"
 import { Link } from "gatsby"
 import React from "react"
 import { BadgeComponent } from "../../molecules/Badge/Badge"

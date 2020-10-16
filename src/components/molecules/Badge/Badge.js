@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react"
 import axios from "axios"
-import { Badge, IconButton, Typography } from "@material-ui/core"
+import { Badge } from "@material-ui/core"
 import AlbumIcon from "@material-ui/icons/Album"
 import { Link } from "gatsby"
-import { useStore } from "../../../hooks/playlist/usePlaylist"
 
 export const BadgeComponent = () => {
   const [songsInPlayList, setSongsInPlaylist] = useState(0)

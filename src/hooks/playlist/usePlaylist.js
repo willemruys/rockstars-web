@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react"
 import create from "zustand"
-import axios from "axios"
 
 export const useStore = create(set => ({
   songsInPlaylist: [],
