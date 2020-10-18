@@ -109,6 +109,33 @@ exports.sourceNodes = async ({
   })
 
   songData.forEach(song => {
+    try {
+      const getToken = async () => {
+        const res = await axios.get("https://accounts.spotify.com/authorize", {
+          params: {
+            client_id: process.env.GATSBY_SPOTIFY_ID,
+            response_type: "code",
+            redirectUri: process.env.GATSBY_API_URL + "/" + "spotify-token",
+          },
+        })
+        const data = res.request.res.responseUrl
+
+        return data
+      }
+      const getImage = async () => {
+        const resToken = getToken()
+        const res = await axios.get(
+          `https://api.spotify.com/v1/tracks/${song.spotifyId}`,
+          { token: resToken }
+        )
+        const imageUrl300 = res.data.images[2].url
+        return imageUrl300
+      }
+    } catch (err) {
+      console.error(err)
+    }
+
+    // song.imageUrl = getImage()
     createNode({
       ...song,
       id: createNodeId(`song-${song.id}`),
