@@ -21,9 +21,9 @@ The page /artists is rendered on server side using the createPageApi, which has 
 
 ## graphql
 
-### an migration has been made to use graphql entirely.
+An migration has been made to use graphql entirely. This follows gatsby's 'regular' implementation.
 
-This applies to index page and songs page.
+Currently graphql queries are used for index page and songs page.
 
 Using localhost:8000/\_\_\_graphql you can query songs. Example:
 
@@ -41,6 +41,14 @@ query SongsQuery {
   }
 }
 ```
+
+## custom hooks
+
+at the moment there are two custom hooks: usePlaylist and useIsInPlaylist.
+
+The first is a global state using Zustand. The latter returns whether a song has already been added in the playlist or not. This is used to disable the add or remove button.
+
+**At the moment this functionality is not yet working correctly**
 
 ## How has the interface been built?
 
