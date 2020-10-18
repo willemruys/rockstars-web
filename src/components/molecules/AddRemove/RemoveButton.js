@@ -25,11 +25,11 @@ const RemoveButton = ({ song }) => {
     getSongsInPlaylist()
   }
 
-  const isInPlaylist = useSongInPlaylist(song.id) // returns true when song is in playlist
+  // const isInPlaylist = useSongInPlaylist(song.id) // returns true when song is in playlist
 
   return (
     <IconButton
-      disabled={!isInPlaylist}
+      // disabled={!isInPlaylist}
       onClick={() => removeSongHandler(song)}
     >
       <RemoveIcon />

@@ -42,13 +42,11 @@ query SongsQuery {
 }
 ```
 
-## custom hooks
+## Custom hooks
 
 at the moment there are two custom hooks: usePlaylist and useIsInPlaylist.
 
-The first is a global state using Zustand. The latter returns whether a song has already been added in the playlist or not. This is used to disable the add or remove button.
-
-**At the moment this functionality is not yet working correctly**
+The first is a global state using Zustand. The latter returns whether a song has already been added in the playlist or not. This is used to disable the add or remove button. **Note: at the moment this functionality of disabling the add and remove button is not yet working correctly**
 
 ## How has the interface been built?
 

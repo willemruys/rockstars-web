@@ -23,9 +23,12 @@ const AddButton = ({ song }) => {
     getSongsInPlaylist()
   }
 
-  const isInPlaylist = useSongInPlaylist(song.id) // returns true when song is in playlist
+  // const isInPlaylist = useSongInPlaylist(song.id) // returns true when song is in playlist
   return (
-    <IconButton disabled={isInPlaylist} onClick={() => addSongHandler(song)}>
+    <IconButton
+      // disabled={isInPlaylist}
+      onClick={() => addSongHandler(song)}
+    >
       <AddIcon color="primary" />
     </IconButton>
   )
