@@ -3,23 +3,15 @@ import axios from "axios"
 import { Badge } from "@material-ui/core"
 import AlbumIcon from "@material-ui/icons/Album"
 import { Link } from "gatsby"
+import useStore from "../../../hooks/playlist/usePlaylist"
 
 export const BadgeComponent = () => {
-  const [songsInPlayList, setSongsInPlaylist] = useState(0)
-
-  const getSongsInPlaylist = async () => {
-    const url = process.env.GATSBY_API_URL + "personal-playlist"
-    await axios.get(url).then(res => setSongsInPlaylist(res.data.length))
-  }
-
-  useEffect(() => {
-    getSongsInPlaylist()
-  }, [])
+  const state = useStore()
 
   return (
-    <Badge badgeContent={songsInPlayList} color="secondary">
+    <Badge badgeContent={state.songsInPlaylist.length} color="secondary">
       <Link to="/playlist">
-        <AlbumIcon />
+        <AlbumIcon color="primary" />
       </Link>
     </Badge>
   )

@@ -19,24 +19,11 @@ Use `yarn start` to start your environment.
 
 The page /artists is rendered on server side using the createPageApi, which has been configured in gatsby-node.js.
 
-## How has the interface been built?
-
-Features has been built using [Material-UI](https://material-ui.com/), a very usefull and popular React component framework.
-
-## Current features
-
-Currently it is possible to
-
-- retrieve all available artists and their songs.
-- Add a song to your playlist and remove one as well using your mock server.
-- retrieve your songs in your playlist.
-
-## WIP
-
 ## graphql
 
-**only available in graphql branch**
-In branch graphql-setup a start has been made to implement Graphql for songs and artists. This follows the regular implementation patterns of Gatsby.
+### an migration has been made to use graphql entirely.
+
+This applies to index page and songs page.
 
 Using localhost:8000/\_\_\_graphql you can query songs. Example:
 
@@ -54,6 +41,20 @@ query SongsQuery {
   }
 }
 ```
+
+## How has the interface been built?
+
+Features has been built using [Material-UI](https://material-ui.com/), a very usefull and popular React component framework.
+
+## Current features
+
+Currently it is possible to
+
+- retrieve all available artists and their songs.
+- Add a song to your playlist and remove one as well using your mock server.
+- retrieve your songs in your playlist.
+
+## WIP
 
 ### Current features
 

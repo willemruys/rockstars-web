@@ -1,12 +1,23 @@
-import { AppBar, makeStyles, MenuItem, Container } from "@material-ui/core"
+import {
+  AppBar,
+  makeStyles,
+  MenuItem,
+  Container,
+  Toolbar,
+  IconButton,
+  Tooltip,
+  Typography,
+} from "@material-ui/core"
 import { Link } from "gatsby"
 import React, { useEffect, useState } from "react"
 import { BadgeComponent } from "../../molecules/Badge/Badge"
-import Alert from "@material-ui/lab/Alert"
+
+import PeopleIcon from "@material-ui/icons/People"
+import LibraryMusicIcon from "@material-ui/icons/LibraryMusic"
 import axios from "axios"
 const useStyles = makeStyles({
   appBar: {
-    backgroundColor: "#00000",
+    backgroundColor: "black",
   },
   // menuItem: {
   //   pointerEvents: "none",
@@ -32,19 +43,20 @@ const Header = ({ siteTitle }) => {
   const classes = useStyles()
   return (
     <AppBar position="sticky" className={classes.appBar}>
-      <Alert severity="warning">You seem disconnected from the server</Alert>
-      <MenuItem>
-        <h1>{siteTitle}</h1>
-      </MenuItem>
-      <Container>
-        <BadgeComponent />
-      </Container>
-      <Container>
-        <Link to="/artists">Your artists</Link>
-      </Container>
-      <Container>
-        <Link to="/songs">All songs</Link>
-      </Container>
+      <Toolbar>
+        <Link color="white" to="/">
+          <Typography type="h5">{siteTitle}</Typography>
+        </Link>
+        <IconButton>
+          <BadgeComponent />
+        </IconButton>
+        <IconButton href="/artists">
+          <PeopleIcon color="primary" />
+        </IconButton>
+        <IconButton href="/songs">
+          <LibraryMusicIcon color="primary" />
+        </IconButton>
+      </Toolbar>
     </AppBar>
   )
 }

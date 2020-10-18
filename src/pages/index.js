@@ -2,52 +2,39 @@ import React, { useEffect, useState } from "react"
 
 import Layout from "../components/layout"
 import { Container, Grid, makeStyles } from "@material-ui/core"
-const axios = require("axios")
+import SongsTables from "../components/organisms/Tables/SongsTables"
+import PlaylistTable from "../components/organisms/Tables/PlaylistTable"
 
+import { graphql } from "gatsby"
+
+const axios = require("axios")
 const useStyles = makeStyles({
   container: {
     marginTop: "20px",
   },
 })
 
-const IndexPage = () => {
-  const [previewArtists, setPreviewArtists] = useState([])
-  const classes = useStyles()
-
-  const getArtists = async () => {
-    const url = process.env.API_URL + "artists"
-    await axios
-      .get(url)
-      .then(res => {
-        setPreviewArtists(res.data)
-      })
-      .catch(err => console.error(err))
-  }
-
-  useEffect(() => {
-    getArtists()
-  }, [])
-
-  console.log(previewArtists)
-
+const IndexPage = ({ data }) => {
   return (
     <Layout>
-      <Container className={classes.container}>
-        <Grid container spacing={3} justify="center">
-          <Grid item xs={12}>
-            <h1>Your artists</h1>
-          </Grid>
-          {/* {previewArtists.map(artist => {
-            return (
-              <Grid item xs={6}>
-                <ArtistCard artist={artist} />
-              </Grid>
-            )
-          })} */}
-        </Grid>
-      </Container>
+      <SongsTables songs={data.allSong.nodes} />
+      <PlaylistTable />
     </Layout>
   )
 }
 
+export const query = graphql`
+  query SongsQuery {
+    allSong {
+      nodes {
+        artist
+        bpm
+        album
+        genre
+        duration
+        id
+      }
+    }
+  }
+`
 export default IndexPage

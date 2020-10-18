@@ -28,8 +28,8 @@ const ArtistCard = ({ artist }) => {
                   <>
                     <ListItem>
                       <ListItemIcon>
-                        <AddButton />
-                        <RemoveButton />
+                        <AddButton song={song} />
+                        <RemoveButton song={song} />
                       </ListItemIcon>
                       <ListItemText primary={song.name} />
                     </ListItem>
