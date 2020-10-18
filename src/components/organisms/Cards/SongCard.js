@@ -1,5 +1,7 @@
 import { Card, CardContent } from "@material-ui/core"
 import React from "react"
+import AddButton from "../../molecules/AddRemove/AddButton"
+import RemoveButton from "../../molecules/AddRemove/RemoveButton"
 
 const SongCard = ({ song }) => {
   const {
@@ -22,6 +24,8 @@ const SongCard = ({ song }) => {
         <p>{album}</p>
         <p>{genre}</p>
       </CardContent>
+      <AddButton song={song} />
+      <RemoveButton song={song} />
     </Card>
   )
 }
